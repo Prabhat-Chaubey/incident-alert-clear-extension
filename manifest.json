@@ -1,1 +1,26 @@
-
+{
+  "manifest_version": 3,
+  "name": "Incident Alert Clear Checker",
+  "version": "1.0",
+  "description": "Checks incidents for cleared alerts and lists them.",
+  "permissions": [
+    "tabs",
+    "scripting",
+    "storage"
+  ],
+  "host_permissions": [
+    "https://YOUR_DOMAIN/incident*"
+  ],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "content_scripts": [
+    {
+      "matches": ["https://YOUR_DOMAIN/incident*"],
+      "js": ["content.js"]
+    }
+  ],
+  "action": {
+    "default_popup": "popup.html"
+  }
+}
